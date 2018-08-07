@@ -7,4 +7,8 @@ Rails.application.routes.draw do
 
   get 'pictures/:id' => 'pictures#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get 'pictures/:id/edit' => "pictures#edit"
+  patch 'pictures/:id' => "pictures#update"
+
 end
