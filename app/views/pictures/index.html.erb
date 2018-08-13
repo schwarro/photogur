@@ -2,6 +2,26 @@
 <%= link_to("New Picture", "/pictures/new") %>
 
 <% @pictures.each do |picture| %>
-  <p><%= picture.title %>, <%= picture.artist %></p>
-  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+  <!-- <p><%= picture.title %>, <%= picture.artist %></p>
+  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %> -->
+  <%= render 'show_pic', picture: picture %>
+<% end %>
+
+<h1>Pictures older than a month</h1>
+<% @older_than_30.each do |picture| %>
+  <p>Created on <%= picture.created_at %></p>
+  <%= render 'show_pic', picture: picture %>
+<% end %>
+
+<h1>Pictures created in 2017</h1>
+<% @pics_in_2017.each do |picture| %>
+  <p>Created on <%= picture.created_at %></p>
+  <%= render 'show_pic', picture: picture %>
+<% end %>
+
+<h1>Pictures created in 2018</h1>
+<% @pics_in_2018.each do |picture| %>
+  <p>Created on <%= picture.created_at %></p>
+  <%= render 'show_pic', picture: picture %>
+  <% render 'show_pic', picture: picture %>
 <% end %>

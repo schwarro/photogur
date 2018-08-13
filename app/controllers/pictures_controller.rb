@@ -1,6 +1,9 @@
 class PicturesController < ApplicationController
   def index
     @pictures = Picture.all
+    @older_than_30 = Picture.created_before("2018-07-07 00:00:00")
+    @pics_in_2017 = Picture.created_in_year("2017")
+    @pics_in_2018 = Picture.created_in_year("2018")
   end
 
   def show
@@ -50,5 +53,5 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @picture.destroy
     redirect_to "/pictures"
-  end 
+  end
 end
